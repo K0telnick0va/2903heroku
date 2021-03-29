@@ -25,7 +25,6 @@ def main():
     app.register_blueprint(news_api.blueprint)
 
 
-
 @app.route("/")
 def index():
     db_sess = db_session.create_session()
@@ -150,5 +149,6 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == '__main__':
+    main()
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
